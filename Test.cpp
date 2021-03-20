@@ -40,10 +40,14 @@ TEST_CASE("big numbers"){
     unsigned int rand1 = rnd() % (unsigned)int(pow(10,6)) +  (unsigned)int(pow(10,6));
     unsigned int rand2 = rnd() % (unsigned)int(pow(10,6)) +  (unsigned)int(pow(10,6));
 
+    doctest::timeout(5);
     CHECK_NOTHROW(board.post(rand1 , rand2 ,Direction::Vertical , "somerandommessage"));
+    doctest::timeout(5);
     CHECK_NOTHROW(board.post(rand1 , rand2 ,Direction::Horizontal , "somerandommessage"));
 
+    doctest::timeout(5);
     CHECK(board.read(rand1-1,rand2,Direction::Vertical,19) == std::string("_somerandommessage_"));
+    doctest::timeout(5);
     CHECK(board.read(rand1,rand2-1,Direction::Horizontal,19) == std::string("_somerandommessage_"));
 }
 TEST_CASE("long string"){
@@ -52,10 +56,14 @@ TEST_CASE("long string"){
 
     std::string long_string(pow(10,6), 'a');
 
+    doctest::timeout(5);
     CHECK_NOTHROW(board.post(0,0,Direction::Horizontal,long_string));
+    doctest::timeout(5);
     CHECK_NOTHROW(board.post(0,0,Direction::Vertical,long_string));
 
+    doctest::timeout(5);
     CHECK(board.read(0,0,Direction::Horizontal,pow(10,6)) == long_string);
+    doctest::timeout(5);
     CHECK(board.read(0,0,Direction::Vertical,pow(10,6)) == long_string);
 
 }
