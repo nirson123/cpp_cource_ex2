@@ -71,8 +71,8 @@ TEST_CASE("weird strings"){
     Board board;
 
     //characters string
-    CHECK_NOTHROW(board.post(0,0,Direction::Horizontal , "!@#$%^&*()_+~`-=[]{}/?.><,\\"));
-    CHECK(board.read(0,0,Direction::Horizontal , 27) == std::string("!@#$%^&*()_+~`-=[]{}/?.><,\\"));
+    CHECK_NOTHROW(board.post(0,0,Direction::Horizontal , "!@#$%^&*()_+~`-=[]{}/?.><,\\\n\r"));
+    CHECK(board.read(0,0,Direction::Horizontal , 27) == std::string("!@#$%^&*()_+~`-=[]{}/?.><,\\\n\r"));
 
     //hebrew string
     CHECK_NOTHROW(board.post(0,0,Direction::Horizontal , "אבגד"));
