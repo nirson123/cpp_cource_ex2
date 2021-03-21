@@ -6,7 +6,6 @@
 #include <string>
 #include "Board.hpp"
 #include <random>
-#include <cstdlib>
 #include <cmath>
 
 using namespace ariel;
