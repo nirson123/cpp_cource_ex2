@@ -49,13 +49,17 @@ string ariel::Board::read(unsigned int row, unsigned int column , Direction dire
 
     if(direction == Direction::Horizontal) {
         for (unsigned int i = 0; i < length; i++) {
+            //if nothing is posted at the location, read '_'
             if (board.size() <= row || board.at(row).size() <= column + i) {result += '_';}
+            //read from the board
             else{result += board.at(row).at(column+i);}
         }
     }
     else if(direction == Direction::Vertical) {
         for (unsigned int i = 0; i < length; i++) {
+            //if nothing is posted at the location, read '_'
             if (board.size() <= row+i || board.at(row+i).size() <= column) {result += '_';}
+            //read from the board
             else{result += board.at(row+i).at(column);}
         }
     }
